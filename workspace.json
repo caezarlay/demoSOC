@@ -92,7 +92,7 @@
                     "capacityReservationLevel": "[if(equals(parameters('pricingTier'),'CapacityReservation'), parameters('capacityReservation'), json('null'))]",
                     "name": "[parameters('pricingTier')]"
                 }
-            }
+            },
         {
             "type": "Microsoft.SecurityInsights/onboardingStates",
             "name": "default",
