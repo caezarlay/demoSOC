@@ -87,8 +87,6 @@
             "properties": {
                 "retentionInDays": "[parameters('dataRetention')]",
                 "workspaceCapping": "[if(equals(parameters('dailyQuota'),0), json('null'), variables('quoatSetting'))]",
-                "features": {
-                    "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
                 },
                 "sku": {
                     "capacityReservationLevel": "[if(equals(parameters('pricingTier'),'CapacityReservation'), parameters('capacityReservation'), json('null'))]",
