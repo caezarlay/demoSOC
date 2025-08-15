@@ -93,7 +93,6 @@
                     "name": "[parameters('pricingTier')]"
                 }
             }
-        },
         {
             "type": "Microsoft.SecurityInsights/onboardingStates",
             "name": "default",
