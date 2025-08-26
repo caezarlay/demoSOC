@@ -29,7 +29,8 @@
             "type": "int",
             "metadata": {
                 "description": "Daily ingestion limit in GBs. This limit doesn't apply to the following tables: SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, WindowsEvent"
-            }
+            },
+            "defaultValue": 1
         },
         "dataRetention": {
             "type": "int",
