@@ -52,7 +52,7 @@
     "functions": [],
     "variables": {
         "quoatSetting": {
-            "dailyQuotaGb": "[parameters('dailyQuota')]"
+            "dailyQuotaGb": "[int(parameters('dailyQuota'))]"
         }
     },
     "resources": [
