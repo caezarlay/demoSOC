@@ -100,11 +100,25 @@
         }
     ],
     "outputs": {
-    "rgName": "[basics('rgName')]",
-    "location": "[basics('location')]",
-    "workspaceName": "[basics('workspaceName')]",
-    "pricingTier": "[basics('pricingTier')]",
-    "dailyQuota": "[int(basics('dailyQuota'))]",
-    "dataRetention": "[int(basics('dataRetention'))]"
+    "location": {
+    "type": "string",
+    "value": "[parameters('location')]"
+  },
+  "workspaceName": {
+    "type": "string",
+    "value": "[parameters('workspaceName')]"
+  },
+  "pricingTier": {
+    "type": "string",
+    "value": "[parameters('pricingTier')]"
+  },
+  "dailyQuota": {
+    "type": "int",
+    "value": "[parameters('dailyQuota')]"
+  },
+  "dataRetention": {
+    "type": "int",
+    "value": "[parameters('dataRetention')]"
+  }
   }
 }
