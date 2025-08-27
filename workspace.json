@@ -99,5 +99,12 @@
             }
         }
     ],
-    "outputs": {}
+    "outputs": {
+    "rgName": "[basics('rgName')]",
+    "location": "[basics('location')]",
+    "workspaceName": "[basics('workspaceName')]",
+    "pricingTier": "[basics('pricingTier')]",
+    "dailyQuota": "[int(basics('dailyQuota'))]",
+    "dataRetention": "[int(basics('dataRetention'))]"
+  }
 }
