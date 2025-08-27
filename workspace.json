@@ -25,6 +25,13 @@
             ],
             "defaultValue": "PerGB2018"
         },
+        "dailyQuota": {
+            "type": "int",
+            "defaultValue": 1,
+            "metadata": {
+                "description": "Daily ingestion limit in GBs. This limit doesn't apply to the following tables: SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, WindowsEvent"
+            }
+        },
         "dataRetention": {
             "type": "int",
             "minValue": 7,
@@ -43,6 +50,11 @@
         }
     },
     "functions": [],
+    "variables": {
+        "quoatSetting": {
+            "dailyQuotaGb": "[int(parameters('dailyQuota'))]"
+        }
+    },
     "resources": [
         {
             "name": "[parameters('workspaceName')]",
@@ -50,7 +62,8 @@
             "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "retentionInDays": "[parameters('dataRetention')]"
+                "retentionInDays": "[parameters('dataRetention')]",
+                "workspaceCapping": "[if(equals(parameters('dailyQuota'),0), json('null'), variables('quoatSetting'))]"
             }
         },
         {
@@ -86,5 +99,26 @@
             }
         }
     ],
-    "outputs": {}
+    "outputs": {
+  "location": {
+    "type": "string",
+    "value": "[parameters('location')]"
+  },
+  "workspaceName": {
+    "type": "string",
+    "value": "[parameters('workspaceName')]"
+  },
+  "pricingTier": {
+    "type": "string",
+    "value": "[parameters('pricingTier')]"
+  },
+  "dailyQuota": {
+    "type": "int",
+    "value": "[parameters('dailyQuota')]"
+  },
+  "dataRetention": {
+    "type": "int",
+    "value": "[parameters('dataRetention')]"
+  }
+ }
 }
